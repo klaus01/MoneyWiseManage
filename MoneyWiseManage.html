@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>财智服务后台管理</title>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+        <style type="text/css">
+div {
+    border-radius:5px;
+    padding:10px;
+    border-style:solid;
+    border-width:2px;
+    border-color:#69D2E7;
+}
+        </style>
+        <script>
+$(document).ready(function() {
+	$("#Bind #post").click(function() {
+		$.ajax({
+			type: "GET",
+			url: "http://www.baidu.com/",
+			data: {OrderID:$("#OrderID").val(), Serialnumber:$("#Serialnumber").val()},
+			dataType: "json",
+			success: function(data) {
+				alert(data);
+			},
+			error: function(XMLHttpRequest, errorMsg, object) {
+				alert(errorMsg);
+			}
+		});
+	});
+});
+        </script>
+	</head>
+	<body>
+		<div id="Bind">
+			<h3>合并序列号</h3><BR>
+			<label>订单号：</label><input type="text" id="OrderID"><BR>
+			<label>序列号：</label><input type="text" id="Serialnumber"><BR>
+			<input type="button" id="post" value="提交">
+		</div>
+	</body>
+</html>
